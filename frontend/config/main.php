@@ -31,7 +31,6 @@ return [
         'urlManager' => [
         'enablePrettyUrl' => true,
         'showScriptName'  => false,
-        'enableStrictParsing' => true,
         'rules' => [
             ['pattern' => '<controller>/<action>', 'route' => '<controller>/<action>', suffix => '.html'],
             ['pattern' => '<module>/<controller>/<action>', 'route' => '<module>/<controller>/<action>', suffix => '.html']
