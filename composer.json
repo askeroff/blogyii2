@@ -1,0 +1,11 @@
+{
+    "name": "yiisoft/yii2-app-advanced",
+    "description": "yii2 blog",
+    "authors": [
+        {
+            "name": "Askerov Javid",
+            "email": "askerovlab@gmail.com"
+        }
+    ],
+    "require": {}
+}
