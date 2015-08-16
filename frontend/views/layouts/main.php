@@ -43,7 +43,7 @@ $this->title = "Askerov Javid";
                   <li><?= Html::a('Login', ['site/login']) ?></li>
 
                   <?php } else {  ?>
-                    <li><?= Html::a('Logout', ['site/logout']) ?></li>
+                    <li><?= Html::a('Logout', ['site/logout'], ['data' => ['method'=>'post']]) ?></li>
                     <?php } ?>
                   <li><?= Html::a('Contact', ['site/contact']) ?></li>
                 </ul>
