@@ -28,14 +28,7 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'urlManager' => [
-        'enablePrettyUrl' => true,
-        'showScriptName'  => false,
-        'rules' => [
-            ['pattern' => '<controller>/<action>', 'route' => '<controller>/<action>', suffix => '.html'],
-            ['pattern' => '<module>/<controller>/<action>', 'route' => '<module>/<controller>/<action>', suffix => '.html']
-        ]
-        ]
+
     ],
     'params' => $params,
 ];

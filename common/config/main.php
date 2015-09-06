@@ -12,6 +12,17 @@ return [
 	        'assignmentFile' => '@common/components/rbac/assignments.php',
 	        'ruleFile' => '@common/components/rbac/rules.php'
     ],
+
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName'  => false,
+            'rules' => [
+                ['pattern' => '<controller>/<action>', 'route' => '<controller>/<action>', suffix => '.html'],
+                ['pattern' => '<module>/<controller>/<action>', 'route' => '<module>/<controller>/<action>', suffix => '.html']
+            ]
+        ],
+
+
             
 
 ]];
