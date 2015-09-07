@@ -2,7 +2,7 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Content;
+use common\models\Content;
 use yii\web\Controller;
 
 
