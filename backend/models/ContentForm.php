@@ -18,7 +18,8 @@ class ContentForm extends Model{
 
     public function rules(){
         return [
-          [['name', 'slug', 'text_bb'], ['required', 'string']],
+          [['name', 'slug', 'text_bb'], 'required'],
+          [['name', 'slug', 'text_bb'], 'string'],
         ];
     }
 

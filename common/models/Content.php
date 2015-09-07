@@ -5,15 +5,7 @@ use Yii;
 use \yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 
-class Content extends  ActiveRecord{
-    public $name; // title of the post
-    public $slug; // /name-of-the-post in the url
-    public $text_bb; // bb-format of the post
-    public $text_html; //html format of the post
-    public $add_time; // posted time
-    public $author_id; // author of the post`s id
-    public $category_id; // category where to publish
-    public $url; // full url of the post
+class Content extends ActiveRecord{
 
     const STATUS_ACTIVE   = 1;
     const STATUS_INACTIVE = 0;
@@ -28,11 +20,31 @@ class Content extends  ActiveRecord{
             [
                 'class' => TimestampBehavior::className(),
                 'attributes' => [
-                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
-                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['add_time'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['add_time'],
                 ],
             ],
         ];
+    }
+
+    public function rules()
+    {
+        return [
+            ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_INACTIVE, self::STATUS_ACTIVE]],
+        ];
+    }
+
+    public static function findPost($id){
+        return static::findOne(['id' => $id]);
+    }
+
+    public function getActive(){
+        return $this->andWhere(['status' => self::STATUS_ACTIVE]);
+    }
+
+    public function getAuthor(){
+        return $this->hasOne(User::className(), ['id' => 'author_id']);
     }
 
 
