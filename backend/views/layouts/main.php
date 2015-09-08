@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Maggie CMS',
+        'brandLabel' => 'Yellowstone CMS',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -54,20 +54,37 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
+    <div class="row container">
+    <div class="col-md-4">
+        <h1>Content</h1>
+        <ul>
+            <li>
+                <?= HTML::a('Добавить запись', '/content/add') ?>
+            </li>
+            <li>
+                <?= HTML::a('Управление записями', '/content/news') ?>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="col-md-8">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
+
+    </div>
+
 </div>
 
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Yii::powered() ?> & <a href="https://github.com/askeroff/blogyii2">Yellowstone CMS</a></p>
     </div>
 </footer>
 

@@ -3,7 +3,6 @@ namespace backend\models;
 
 use common\models\Content;
 use yii\base\Model;
-use yii\helpers\Url;
 use Yii;
 
 class ContentForm extends Model{
@@ -25,16 +24,17 @@ class ContentForm extends Model{
 
     public function addPost(){
         if($this->validate()){
-            $post                  = new Content();
-            $post->name            = $this->name;
-            $post->slug            = $this->slug;
-            $post->text_bb         = $this->text_bb;
-            $post->author_id       = Yii::$app->user->id;
-            $post->category_id     = 1;
-            $post->url             = Url::base() . "/posts/" . $this->slug;
+            $content                  = new Content();
+            $content->name            = $this->name;
+            $content->slug            = $this->slug;
+            $content->text_bb         = $this->text_bb;
+            $content->text_html       = $this->text_bb;
+            $content->author_id       = Yii::$app->user->id;
+            $content->category_id     = 1;
+            $content->url             = Yii::$app->params['frontEndUrl'] . "/posts/" . $this->slug;
 
-            if($post->save()){
-                return $post;
+            if($content->save()){
+                return $content;
             }
         }
 

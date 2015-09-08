@@ -65,7 +65,7 @@ $this->title = "Askerov Javid";
 
             <div class="cont">
                 <div class="searchbox">
-                    Built with <a href="https://github.com/askeroff/blogyii2">Maggie CMS</a>
+                    Built with <a href="https://github.com/askeroff/blogyii2">Yellowstone CMS</a>
                 </div>
             </div>
         </div>
