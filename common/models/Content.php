@@ -39,14 +39,10 @@ class Content extends ActiveRecord{
         return static::findOne(['id' => $id]);
     }
 
-    public function getActive(){
-        return $this->andWhere(['status' => self::STATUS_ACTIVE]);
-    }
+
 
     public function getAuthor(){
         return $this->hasOne(User::className(), ['id' => 'author_id']);
     }
-
-
 
 }

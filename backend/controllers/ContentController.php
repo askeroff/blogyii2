@@ -31,13 +31,13 @@ class ContentController extends Controller {
 
     public function actionNews(){
         $dataProvider = new ActiveDataProvider([
-            'query' => Content::find(),
+            'query' => Content::find()->with('author'),
             'pagination' => [
                 'pageSize' => 5,
             ],
         ]);
         return $this->render('news',  [
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider, 'posts' => $dataProvider->getModels()
         ]);
     }
 }

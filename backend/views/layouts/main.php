@@ -26,6 +26,8 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+
+
     <?php
     NavBar::begin([
         'brandLabel' => 'Yellowstone CMS',
@@ -54,10 +56,11 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="row container">
-    <div class="col-md-4">
+    <div class="container-fluid dashboard">
+    <div class="row">
+    <div class="col-md-2 sidebar">
         <h1>Content</h1>
-        <ul>
+        <ul class="nav nav-sidebar">
             <li>
                 <?= HTML::a('Добавить запись', '/content/add') ?>
             </li>
@@ -66,9 +69,11 @@ AppAsset::register($this);
             </li>
         </ul>
 
+
+
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-10 col-md-offset-2">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -77,16 +82,10 @@ AppAsset::register($this);
     </div>
 
     </div>
-
+    </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?> & <a href="https://github.com/askeroff/blogyii2">Yellowstone CMS</a></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
