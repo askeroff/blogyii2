@@ -5,8 +5,13 @@ use Yii;
 use \yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 
-class Content extends ActiveRecord{
+class Content extends ActiveRecord
+{
 
+    /*
+     * Обозначение активности/неактивности записи
+     * Служит для определения показывать запись или нет
+     */
     const STATUS_ACTIVE   = 1;
     const STATUS_INACTIVE = 0;
 
@@ -35,13 +40,12 @@ class Content extends ActiveRecord{
         ];
     }
 
-    public static function findPost($id){
-        return static::findOne(['id' => $id]);
-    }
+    /*
+     * связь с таблицей пользователей для определения автора записи
+     */
 
-
-
-    public function getAuthor(){
+    public function getAuthor()
+    {
         return $this->hasOne(User::className(), ['id' => 'author_id']);
     }
 

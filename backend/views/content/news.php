@@ -1,6 +1,6 @@
 <?php
 use yii\widgets\LinkPager;
-use yii\grid\GridView;
+
 
 $this->title = 'Список новостей';
 $this->params['breadcrumbs'][] = $this->title;
@@ -12,22 +12,22 @@ $this->params['breadcrumbs'][] = $this->title;
 <table class="table table-striped table-bordered">
     <tr>
         <th>
-            <a href="/content/news.html?sort=id" data-sort="id">Id</a>
+            <a href="?sort=id" data-sort="id">Id</a>
         </th>
         <th>
-            <a href="/content/news.html?sort=author_id" data-sort="author_id">Автор</a>
+            <a href="?sort=author_id" data-sort="author_id">Автор</a>
         </th>
         <th>
-            <a href="/content/news.html?sort=name" data-sort="name">Название</a>
+            <a href="?sort=name" data-sort="name">Название</a>
         </th>
         <th>
-            <a href="/content/news.html?sort=add_time" data-sort="add_time">Дата</a>
+            <a href="?sort=add_time" data-sort="add_time">Дата</a>
         </th>
         <th>
-            <a href="/content/news.html?sort=category_id" data-sort="category_id">Категория</a>
+            <a href="?sort=category_id" data-sort="category_id">Категория</a>
         </th>
         <th>
-            <a href="/content/news.html?sort=status" data-sort="status">Статус</a>
+            <a href="?sort=status" data-sort="status">Статус</a>
         </th>
         <th>
            :)
@@ -57,15 +57,23 @@ foreach ($posts as $post ) {
         <?=  $post->category_id ?>
     </td>
     <td>
-        <?=  $post->status ?>
+        <?php
+        if($post->status == 0){
+            echo "<i class='status-inactive glyphicon glyphicon-minus-sign'></i>";
+        } else{
+            echo "<i class='status-inactive glyphicon glyphicon-plus-sign'></i>";
+        }
+        ?>
     </td>
 
     <td class="settings">
-     <a title="Удалить" href="/?r=exercise/data&id= ">
-     <i class="glyphicon glyphicon-remove"></i>
-     </a>
-        <a title="Редактировать" href="/?r=exercise/data&id= ">
+
+        <a title="Редактировать" href="# ">
             <i class="glyphicon glyphicon-edit"></i>
+        </a>
+
+        <a class="delete-post-link" title="Удалить" href="#" data-del="/content/delete?id=<?= $post->id ?>">
+            <i class="glyphicon glyphicon-trash"></i>
         </a>
     </td>
 
@@ -75,5 +83,19 @@ foreach ($posts as $post ) {
 ?>
 </table>
 <?= LinkPager::widget(['pagination' => $dataProvider->pagination]) ?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".delete-post-link").click(function(){
+            var c = confirm("Действие необратимо. Вы уверены, что хотите удалить?");
+            if(c == true)
+            {
+                window.location = $(this).attr("data-del");
+            } else {
+                return null;
+            }
+        });
+    });
+</script>
 
 
