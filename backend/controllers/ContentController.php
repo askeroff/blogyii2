@@ -98,19 +98,21 @@ class ContentController extends Controller
 
     public function actionEdit($id)
     {
-        $model = Content::find()->where(['id' => $id])->one();
-        if ($model->load(Yii::$app->request->post())) {
-            if($model->save()){
+        $model = Content::findOne($id);
+        if (isset($_POST['Content']) && $model->load(Yii::$app->request->post())) {
+            if ($model->validate() && $model->save()) {
                 Yii::$app->getSession()
                     ->addFlash('success', '<b>Запись успешно отредактирована!</b>');
-            } else{
+            } else {
                 Yii::$app->getSession()
                     ->addFlash('error', '<b>Произошла ошибка. Запись не изменена</b>');
             }
+
         }
 
+
         return $this->render('edit',  [
-            'model' => $model,
+            'model' =>  $model,
         ]);
 
     }
