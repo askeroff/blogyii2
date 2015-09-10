@@ -37,6 +37,8 @@ class Content extends ActiveRecord
         return [
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_INACTIVE, self::STATUS_ACTIVE]],
+            [['name', 'slug', 'text_bb'], 'required'],
+            [['name', 'slug', 'text_bb'], 'string'],
         ];
     }
 
