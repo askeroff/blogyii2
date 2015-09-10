@@ -30,6 +30,7 @@ return [
         'children' => [
             'moder',
             'deletePost',
+            'updatePost'
         ],
     ],
 ];
