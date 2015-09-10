@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'text_bb')->textarea()->label('Текст новости') ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary', 'name' => 'edit-button']) ?>
+                <?= Html::submitButton('Обновить', ['class' => 'btn btn-primary', 'name' => 'edit-button']) ?>
             </div>
 
             <?php ActiveForm::end(); }?>

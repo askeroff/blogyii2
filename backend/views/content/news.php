@@ -39,7 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php
 foreach ($posts as $post ) {
-    ?>
+?>
+
     <tr>
     <td>
          <?= $post->id ?>
@@ -68,7 +69,7 @@ foreach ($posts as $post ) {
 
     <td class="settings">
 
-        <a title="Редактировать" href="# ">
+        <a title="Редактировать" href="/content/edit?id=<?= $post->id ?>">
             <i class="glyphicon glyphicon-edit"></i>
         </a>
 
