@@ -21,7 +21,7 @@ class ContentController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['add', 'news', 'delete'],
+                        'actions' => ['add', 'news', 'delete', 'edit'],
                         'allow' => true,
                         'roles' => ['admin', 'moder'],
                     ]]]];
@@ -50,10 +50,9 @@ class ContentController extends Controller
             if(Yii::$app->user->can('createPost') && $content = $model->addPost()){
                 Yii::$app->getSession()
                          ->addFlash('success', '<b>Запись успешно добавлена!</b>');
-            }
-            else{
+            } else{
                 Yii::$app->getSession()
-                    ->addFlash('error', '<b>Произошла ошибка. Запись не добавлена</b>');
+                         ->addFlash('error', '<b>Произошла ошибка. Запись не добавлена</b>');
             }
         }
 
@@ -62,10 +61,10 @@ class ContentController extends Controller
         ]);
     }
 
-    /*
+    /**
      * Вывод новостей в админ-панель для их управления
-     * @$dataProvider \backend\controllers\ContentController
-     * @$posts \backend\controllers\ContentController
+     * @dataProvider \backend\controllers\ContentController
+     * @posts \backend\controllers\ContentController
      */
 
     public function actionNews()
@@ -84,18 +83,35 @@ class ContentController extends Controller
 
     public function actionDelete($id)
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Content::find()->with('author'),
-            'pagination' => [
-                'pageSize' => 5,
-            ],
+        if(Content::find()->where(['id' => $id])->one()->delete())
+        {
+            Yii::$app->getSession()
+                ->addFlash('success', '<b>Запись успешно удалена</b>');
+           return $this->actionNews();
+        } else{
+            Yii::$app->getSession()
+                ->addFlash('success', '<b>Запись не удается удалить</b>');
+            return $this->actionNews();
+        }
+
+    }
+
+    public function actionEdit($id)
+    {
+        $model = Content::find()->where(['id' => $id])->one();
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+                Yii::$app->getSession()
+                    ->addFlash('success', '<b>Запись успешно отредактирована!</b>');
+            } else{
+                Yii::$app->getSession()
+                    ->addFlash('error', '<b>Произошла ошибка. Запись не изменена</b>');
+            }
+        }
+
+        return $this->render('edit',  [
+            'model' => $model,
         ]);
 
-        return $this->render('news', [
-            'id' => $id,
-            'exercises' => Content::find()->where(['id' => $id])->one()->delete(),
-            'dataProvider' => $dataProvider,
-            'posts' => $dataProvider->getModels()
-        ]);
     }
 }
