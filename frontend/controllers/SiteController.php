@@ -12,6 +12,9 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use common\models\Content;
+
+
 
 /**
  * Site controller
@@ -46,6 +49,7 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+
         ];
     }
 
@@ -210,4 +214,16 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    /**
+     * Метод для показа публикации
+     */
+
+    public function actionShow($slug)
+    {
+        $data = Content::find()->where(['slug' => $slug])->one();
+        return $this->render('content', ['data' => $data]);
+    }
+
+
 }
