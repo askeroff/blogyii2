@@ -98,7 +98,7 @@ class ContentController extends Controller
 
     public function actionEdit($id)
     {
-        $model = Content::findOne($id);
+        $model = Content::find()->where(['id' => $id])->one();
         if (isset($_POST['Content']) && $model->load(Yii::$app->request->post())) {
             if ($model->validate() && $model->save()) {
                 Yii::$app->getSession()
@@ -109,8 +109,6 @@ class ContentController extends Controller
             }
 
         }
-
-
         return $this->render('edit',  [
             'model' =>  $model,
         ]);

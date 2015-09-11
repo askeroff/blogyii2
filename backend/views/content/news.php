@@ -85,18 +85,6 @@ foreach ($posts as $post ) {
 </table>
 <?= LinkPager::widget(['pagination' => $dataProvider->pagination]) ?>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".delete-post-link").click(function(){
-            var c = confirm("Действие необратимо. Вы уверены, что хотите удалить?");
-            if(c == true)
-            {
-                window.location = $(this).attr("data-del");
-            } else {
-                return null;
-            }
-        });
-    });
-</script>
+
 
 

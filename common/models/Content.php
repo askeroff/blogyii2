@@ -4,6 +4,8 @@ namespace common\models;
 use Yii;
 use \yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
+use yii\behaviors\SluggableBehavior;
+
 
 class Content extends ActiveRecord
 {
@@ -29,6 +31,10 @@ class Content extends ActiveRecord
                     ActiveRecord::EVENT_BEFORE_UPDATE => ['add_time'],
                 ],
             ],
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'slug'
+            ]
         ];
     }
 
@@ -39,6 +45,7 @@ class Content extends ActiveRecord
             ['status', 'in', 'range' => [self::STATUS_INACTIVE, self::STATUS_ACTIVE]],
             [['name', 'slug', 'text_bb'], 'required'],
             [['name', 'slug', 'text_bb'], 'string'],
+
         ];
     }
 
