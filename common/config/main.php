@@ -17,10 +17,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
             'rules' => [
-                ['pattern' => 'post/<slug:(.*?)>', 'route' => 'site/show', 'suffix' => '.html' ],
-                ['pattern' => '<controller>/<action>', 'route' => '<controller>/<action>', suffix => '.html'],
-                ['pattern' => '<module>/<controller>/<action>',
-                    'route' => '<module>/<controller>/<action>', suffix => '.html'],
+                ['pattern' => 'post/<slug:(.*?)>', 'route' => 'site/show'],
+                ['pattern' => '<controller>/<action>', 'route' => '<controller>/<action>'],
+                ['pattern' => '<module>/<controller>/<action>', 'route' => '<module>/<controller>/<action>'],
 
             ]
         ],

@@ -10,14 +10,8 @@ use yii\behaviors\SluggableBehavior;
 class Content extends ActiveRecord
 {
 
-    /*
-     * Обозначение активности/неактивности записи
-     * Служит для определения показывать запись или нет
-     */
-    const STATUS_ACTIVE   = 1;
-    const STATUS_INACTIVE = 0;
-
-    public static function tableName(){
+    public static function tableName()
+    {
         return '{{%content}}';
     }
 
@@ -41,8 +35,7 @@ class Content extends ActiveRecord
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_INACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_INACTIVE, self::STATUS_ACTIVE]],
+            ['status', 'default', 'value' => 1],
             [['name', 'slug', 'text_bb'], 'required'],
             [['name', 'slug', 'text_bb'], 'string'],
 

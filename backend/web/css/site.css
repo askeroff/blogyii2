@@ -20,14 +20,14 @@ h1{  margin-top: 0px;  }
     background-color: #f5f5f5;
     border-right: 1px solid #eee;
 }
-.settings{
-    text-align: center;
-}
+.settings{  text-align: center;  }
+
+.status-active{  color:green;  }
+
+.status-inactive{ color:red;  }
 
 
-.settings .delete-post-link{
-    padding-right: 5px;
-}
+.settings .delete-post-link{  padding-right: 5px;  }
 
 
 .wrap {

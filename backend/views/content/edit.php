@@ -21,6 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'text_bb')->textarea()->label('Текст новости') ?>
 
+            <?= $form->field($model, 'status')->checkbox()->label('Опубликовать сразу') ?>
+
             <div class="form-group">
                 <?= Html::submitButton('Обновить', ['class' => 'btn btn-primary', 'name' => 'edit-button']) ?>
             </div>

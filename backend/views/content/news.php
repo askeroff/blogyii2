@@ -1,6 +1,6 @@
 <?php
 use yii\widgets\LinkPager;
-
+use yii\helpers\Html;
 
 $this->title = 'Список новостей';
 $this->params['breadcrumbs'][] = $this->title;
@@ -49,7 +49,7 @@ foreach ($posts as $post ) {
         <?=  $post->author->username ?>
     </td>
     <td>
-        <?=  $post->name ?>
+        <?= HTML::a($post->name, Yii::$app->params['frontEndUrl'] . '/post/' . $post->slug) ?>
     </td>
     <td>
         <?=  date("m.d.y",$post->add_time) ?>
@@ -57,12 +57,12 @@ foreach ($posts as $post ) {
     <td>
         <?=  $post->category_id ?>
     </td>
-    <td>
+    <td class="settings">
         <?php
         if($post->status == 0){
             echo "<i class='status-inactive glyphicon glyphicon-minus-sign'></i>";
         } else{
-            echo "<i class='status-inactive glyphicon glyphicon-plus-sign'></i>";
+            echo "<i class='status-active glyphicon glyphicon-plus-sign'></i>";
         }
         ?>
     </td>
