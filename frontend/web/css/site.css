@@ -360,6 +360,13 @@ body {
 html, body {
   height: 100%; }
 
+
+a, a:visited{
+  color: #245580;
+}
+
+
+
 .clearfix:after {
   content: " ";
   /* Older browser do not support empty content */

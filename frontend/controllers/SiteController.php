@@ -8,6 +8,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use yii\base\InvalidParamException;
+use yii\data\ActiveDataProvider;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -76,7 +77,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $dataProvider = new ActiveDataProvider([
+           'query' => Content::find()->where(['status' => 1])->with('author')->orderBy(['add_time' => SORT_DESC]),
+           'pagination'  => ['pageSize' => 5],
+        ]);
+        return $this->render('index', ['dataProvider' => $dataProvider->getModels()]);
     }
 
     /**

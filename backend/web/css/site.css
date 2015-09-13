@@ -29,6 +29,13 @@ h1{  margin-top: 0px;  }
 
 .settings .delete-post-link{  padding-right: 5px;  }
 
+#contentform-text_bb {
+    width: 800px;
+    height: 300px;
+    padding: 20px;
+    color: #666;
+}
+
 
 .wrap {
     min-height: 100%;

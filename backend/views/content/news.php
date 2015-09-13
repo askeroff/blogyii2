@@ -49,7 +49,7 @@ foreach ($posts as $post ) {
         <?=  $post->author->username ?>
     </td>
     <td>
-        <?= HTML::a($post->name, Yii::$app->params['frontEndUrl'] . '/post/' . $post->slug) ?>
+        <?= HTML::a($post->name, Yii::$app->params['frontEndUrl'] . Yii::$app->params['postUrlPrefix'] . $post->slug) ?>
     </td>
     <td>
         <?=  date("m.d.y",$post->add_time) ?>

@@ -72,7 +72,6 @@ $this->title = "Askerov Javid";
     </div>
 
     <div class="posts-wrap">
-        <h1 class="page-title"><?= PAGETITLE ?></h1>
 
         <div class="full-content">
             <?= $content ?>
