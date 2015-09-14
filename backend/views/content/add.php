@@ -19,6 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'slug')->label('Путь к ссылке') ?>
 
+            <?= $form->field($model, 'text_short')->textarea()->label('Анонс новости') ?>
+
             <?= $form->field($model, 'text_bb')->textarea()->label('Текст новости') ?>
 
             <?= $form->field($model, 'status')->checkbox()->label('Опубликовать сразу') ?>

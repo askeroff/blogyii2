@@ -7,6 +7,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\behaviors\SluggableBehavior;
 
 
+
 class Content extends ActiveRecord
 {
 
@@ -28,7 +29,9 @@ class Content extends ActiveRecord
             [
                 'class' => SluggableBehavior::className(),
                 'attribute' => 'slug'
-            ]
+            ],
+
+
         ];
     }
 
@@ -36,8 +39,8 @@ class Content extends ActiveRecord
     {
         return [
             ['status', 'default', 'value' => 1],
-            [['name', 'slug', 'text_bb'], 'required'],
-            [['name', 'slug', 'text_bb'], 'string'],
+            [['name', 'slug', 'text_bb', 'text_short'], 'required'],
+            [['name', 'slug', 'text_bb', 'text_short'], 'string'],
 
         ];
     }

@@ -16,12 +16,13 @@ class m150907_065743_content extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
             'slug' => $this->string(),
+            'text_short' => $this->string(),
             'text_bb' => $this->text(),
             'text_html' => $this->text()->notNull(),
             'add_time' => $this->integer()->notNull(),
             'author_id' => $this->integer()->notNull(),
             'category_id' => $this->integer()->notNull(),
-            'url' => $this->string(),
+          //  'url' => $this->string(),
             'status' => $this->integer()->notNull(),
         ], $tableOptions);
 

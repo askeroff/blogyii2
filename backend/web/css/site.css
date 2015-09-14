@@ -29,9 +29,9 @@ h1{  margin-top: 0px;  }
 
 .settings .delete-post-link{  padding-right: 5px;  }
 
-#contentform-text_bb {
+.addContent textarea{
     width: 800px;
-    height: 300px;
+    height: 200px;
     padding: 20px;
     color: #666;
 }

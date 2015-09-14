@@ -14,13 +14,15 @@ class ContentForm extends Model{
     public $add_time; // posted time
     public $author_id; // author of the post`s id
     public $category_id; // category where to publish
-    public $url; // full url of the post
+    public $text_short; // full url of the post
+
+
 
     public function rules(){
         return [
           ['slug', 'unique', 'targetClass' => 'common\Models\Content', 'message' => 'Ссылка должна быть уникальна'],
-          [['name', 'slug', 'text_bb', 'status'], 'required'],
-          [['name', 'slug', 'text_bb'], 'string'],
+          [['name', 'slug', 'text_bb', 'status', 'text_short'], 'required'],
+          [['name', 'slug', 'text_bb', 'text_short'], 'string'],
         ];
     }
 
@@ -33,7 +35,7 @@ class ContentForm extends Model{
             $content->text_html       = $this->text_bb;
             $content->author_id       = Yii::$app->user->id;
             $content->category_id     = 1;
-            $content->url             = Yii::$app->params['frontEndUrl'] . "/posts/" . $this->slug;
+            $content->text_short      = $this->text_short;
             $content->status          = ($this->status == 1) ? 1 : 0;
 
             if($content->save())

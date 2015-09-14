@@ -364,8 +364,13 @@ html, body {
 a, a:visited{
   color: #245580;
 }
-
-
+a:hover{
+  text-decoration: none;
+}
+.main-post{
+  margin-bottom: 50px;
+  border-bottom: 1px solid #ededed;
+}
 
 .clearfix:after {
   content: " ";
@@ -537,6 +542,14 @@ ul.nav-menu {
 .pagination {
   margin: 3em auto 0;
   width: 20%; }
+
+.pagination li{
+  list-style: none;
+  display: inline-block;
+  border:1px solid #245580;
+  padding: 8px;
+  margin-right: 2px;
+}
 
 .full-content {
   padding: 2%; }

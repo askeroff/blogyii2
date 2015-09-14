@@ -81,7 +81,7 @@ class SiteController extends Controller
            'query' => Content::find()->where(['status' => 1])->with('author')->orderBy(['add_time' => SORT_DESC]),
            'pagination'  => ['pageSize' => 5],
         ]);
-        return $this->render('index', ['dataProvider' => $dataProvider->getModels()]);
+        return $this->render('index', ['dataProvider' => $dataProvider->getModels(), 'model' => $dataProvider]);
     }
 
     /**
