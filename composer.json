@@ -8,6 +8,6 @@
         }
     ],
     "require": {
-
+        "yiidoc/yii2-redactor": "*"
     }
 }

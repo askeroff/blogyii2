@@ -1,6 +1,7 @@
 <?php
 
-/* @var $this yii\web\View */
+//use common\helpers\ParserHelper;
+
 
 $this->title = $data->name;
 ?>
