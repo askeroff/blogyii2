@@ -59,7 +59,7 @@ AppAsset::register($this);
     <div class="container-fluid dashboard">
     <div class="row">
     <div class="col-md-2 sidebar">
-        <h1>Content</h1>
+        <h1>Контент</h1>
         <ul class="nav nav-sidebar">
             <li>
                 <?= HTML::a('Добавить запись', '/content/add') ?>
@@ -67,8 +67,16 @@ AppAsset::register($this);
             <li>
                 <?= HTML::a('Управление записями', '/content/news') ?>
             </li>
+
         </ul>
 
+        <h1>Пользователи</h1>
+        <ul class="nav nav-sidebar">
+
+            <li>
+                <?= HTML::a('Управление пользователями', '/users/index') ?>
+            </li>
+        </ul>
 
 
     </div>

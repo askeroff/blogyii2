@@ -100,7 +100,7 @@ class ContentController extends Controller
     {
         $model = Content::find()->where(['id' => $id])->one();
         if (isset($_POST['Content']) && $model->load(Yii::$app->request->post())) {
-            $model->text_html = $model->text_bb;
+            
             if ($model->validate() && $model->save()) {
                 Yii::$app->getSession()
                     ->addFlash('success', '<b>Запись успешно отредактирована!</b>');

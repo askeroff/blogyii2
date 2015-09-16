@@ -32,7 +32,6 @@ class ContentForm extends Model{
             $content->name            = $this->name;
             $content->slug            = $this->slug;
             $content->text_bb         = $this->text_bb;
-            $content->text_html       = $this->text_bb;
             $content->author_id       = Yii::$app->user->id;
             $content->category_id     = 1;
             $content->text_short      = $this->text_short;

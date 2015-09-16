@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use \yii\redactor\widgets\Redactor;
 
 $this->title = 'Добавление записи';
 $this->params['breadcrumbs'][] = $this->title;
@@ -19,9 +20,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'slug')->label('Путь к ссылке') ?>
 
-            <?= $form->field($model, 'text_short')->textarea()->label('Анонс новости') ?>
+            <?= $form->field($model, 'text_short')->textarea()->label('Анонс')
+                                                  ->widget(Redactor::className())?>
 
-            <?= $form->field($model, 'text_bb')->textarea()->label('Текст новости') ?>
+            <?= $form->field($model, 'text_bb')->textarea()->label('Текст новости')
+                                               ->widget(Redactor::className()) ?>
+
 
             <?= $form->field($model, 'status')->checkbox()->label('Опубликовать сразу') ?>
 
