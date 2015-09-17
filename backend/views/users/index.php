@@ -16,6 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <th>
             <a href="?sort=author_id" data-sort="author_id">Ник</a>
         </th>
+        <th>
+            Почта
+        </th>
     </tr>
 
 
@@ -31,6 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
             </td>
             <td>
                 <?=  $user->username ?>
+            </td>
+            <td>
+                <?= $user->email; ?>
             </td>
 
         </tr>
