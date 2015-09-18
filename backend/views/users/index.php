@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?=  $user->username ?>
             </td>
             <td>
-                <?= $user->email; ?>
+                <?php var_dump(\Yii::$app->authManager->getRolesByUser($user->id)); ?>
             </td>
 
         </tr>
