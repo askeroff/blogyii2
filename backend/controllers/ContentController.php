@@ -7,6 +7,7 @@ use common\models\Content;
 use backend\models\ContentForm;
 use yii\web\Controller;
 use yii\filters\AccessControl;
+use backend\models\Categories;
 
 
 
@@ -21,7 +22,7 @@ class ContentController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['add', 'news', 'delete', 'edit'],
+                        'actions' => ['add', 'news', 'delete', 'edit', 'categories'],
                         'allow' => true,
                         'roles' => ['admin', 'moder'],
                     ]]]];
@@ -114,5 +115,26 @@ class ContentController extends Controller
             'model' =>  $model,
         ]);
 
+    }
+
+    public function actionCategories()
+    {
+        $model = new Categories();
+        $categories = Categories::find()->roots()->all();
+        if ($model->load(Yii::$app->request->post())) {
+            if (Yii::$app->user->can('createPost') && $model->addCategory()) {
+                Yii::$app->getSession()
+                    ->addFlash('success', '<b>Категория успешно добавлена!</b>');
+            } else {
+                Yii::$app->getSession()
+                    ->addFlash('error', '<b>Произошла ошибка. Запись не добавлена</b>');
+            }
+        }
+
+        return $this->render('categories', [
+            'categories' => $categories,
+            //'categories'   => $dataProvider->getModels(),
+            'model' => $model
+        ]);
     }
 }

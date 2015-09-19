@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e803ec3860557a61bce2131eb943e7d8",
-    "content-hash": "f99c8e061c6196bf0950897e88568336",
+    "hash": "bf1ff95bfbb79593cc0e8b0af2c4748e",
+    "content-hash": "5cbf6b8bfe23b9e24e0f474b87678141",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -395,6 +395,48 @@
                 "fixtures"
             ],
             "time": "2015-05-29 06:29:14"
+        },
+        {
+            "name": "paulzi/yii2-nested-intervals",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paulzi/yii2-nested-intervals.git",
+                "reference": "46fe74980459d311550ad16f09f213d1b93e4707"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paulzi/yii2-nested-intervals/zipball/46fe74980459d311550ad16f09f213d1b93e4707",
+                "reference": "46fe74980459d311550ad16f09f213d1b93e4707",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "paulzi\\nestedintervals\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PaulZi",
+                    "email": "pavel.zimakoff@gmail.com"
+                }
+            ],
+            "description": "Nested Intervals Behavior for Yii2",
+            "keywords": [
+                "nested intervals",
+                "nested sets",
+                "yii2"
+            ],
+            "time": "2015-07-23 21:49:39"
         },
         {
             "name": "phpspec/php-diff",

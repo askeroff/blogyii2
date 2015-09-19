@@ -67,7 +67,9 @@ AppAsset::register($this);
             <li>
                 <?= HTML::a('Управление записями', '/content/news') ?>
             </li>
-
+            <li>
+                <?= HTML::a('Категории', '/content/categories') ?>
+            </li>
         </ul>
 
         <h1>Пользователи</h1>
