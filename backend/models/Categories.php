@@ -1,27 +1,12 @@
 <?php
 namespace backend\models;
 
-use paulzi\nestedintervals\NestedIntervalsBehavior;
 use \yii\db\ActiveRecord;
-use backend\models\CategoriesQuery;
+
 
 class Categories extends ActiveRecord
 {
-    public function behaviors() {
-        return [
-            [
-                'class' => NestedIntervalsBehavior::className(),
-                // 'treeAttribute' => 'tree',
-            ],
-        ];
-    }
 
-    public function transactions()
-    {
-        return [
-            self::SCENARIO_DEFAULT => self::OP_ALL,
-        ];
-    }
 
     public function rules(){
         return [
@@ -46,10 +31,7 @@ class Categories extends ActiveRecord
         return null;
     }
 
-    public static function find()
-    {
-        return new CategoriesQuery(get_called_class());
-    }
+
 
 
 }

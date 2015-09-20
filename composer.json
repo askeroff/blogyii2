@@ -8,7 +8,6 @@
         }
     ],
     "require": {
-        "yiidoc/yii2-redactor": "*",
-        "paulzi/yii2-nested-intervals": "^1.0"
+        "yiidoc/yii2-redactor": "*"
     }
 }
