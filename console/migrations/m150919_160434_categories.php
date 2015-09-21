@@ -16,6 +16,7 @@ class m150919_160434_categories extends Migration
 
         $this->createTable('{{%categories}}', [
             'id'    => Schema::TYPE_PK,
+            'tree' => Schema::TYPE_INTEGER,
             'lft'   => Schema::TYPE_INTEGER . ' NOT NULL',
             'rgt'   => Schema::TYPE_INTEGER . ' NOT NULL',
             'depth' => Schema::TYPE_INTEGER . ' NOT NULL',
@@ -29,9 +30,7 @@ class m150919_160434_categories extends Migration
 
     public function down()
     {
-        echo "m150919_160434_categories cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('{{%categories}}');
     }
 
     /*

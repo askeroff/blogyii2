@@ -120,7 +120,7 @@ class ContentController extends Controller
     public function actionCategories()
     {
         $model = new Categories();
-       // $categories = Categories::find()->roots()->all();
+        $categories = Categories::find()->roots()->all();
         if ($model->load(Yii::$app->request->post())) {
             if (Yii::$app->user->can('createPost') && $model->addCategory()) {
                 Yii::$app->getSession()
@@ -132,8 +132,7 @@ class ContentController extends Controller
         }
 
         return $this->render('categories', [
-         //   'categories' => $categories,
-            //'categories'   => $dataProvider->getModels(),
+            'categories' => $categories,
             'model' => $model
         ]);
     }

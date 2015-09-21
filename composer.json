@@ -8,6 +8,7 @@
         }
     ],
     "require": {
-        "yiidoc/yii2-redactor": "*"
+        "yiidoc/yii2-redactor": "*",
+        "creocoder/yii2-nested-sets": "^0.9.0"
     }
 }
