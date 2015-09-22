@@ -21,7 +21,7 @@ class ContentForm extends Model{
     public function rules(){
         return [
           ['slug', 'unique', 'targetClass' => 'common\Models\Content', 'message' => 'Ссылка должна быть уникальна'],
-          [['name', 'slug', 'text_bb', 'status', 'text_short'], 'required'],
+          [['name', 'slug', 'text_bb', 'status', 'text_short', 'category_id'], 'required'],
           [['name', 'slug', 'text_bb', 'text_short'], 'string'],
         ];
     }

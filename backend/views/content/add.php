@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['options' => ['class' => 'addContent']]); ?>
 
+
             <?= $form->field($model, 'name')->label('Название') ?>
 
             <?= $form->field($model, 'slug')->label('Путь к ссылке') ?>
@@ -28,6 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
             <?= $form->field($model, 'status')->checkbox()->label('Опубликовать сразу') ?>
+
+            <h2>Категория</h2>
+
+            <?php foreach($categories as $category) { ?>
+
+                <?= $form->field($model, 'category_id')->checkbox()->label($category->name) ?>
+            <? } ?>
 
             <div class="form-group">
                 <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>

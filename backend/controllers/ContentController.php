@@ -45,7 +45,8 @@ class ContentController extends Controller
      */
     public function actionAdd()
     {
-        $model = new ContentForm();
+        $model      = new ContentForm();
+        $categories = Categories::find()->all();
 
         if ($model->load(Yii::$app->request->post())) {
             if(Yii::$app->user->can('createPost') && $content = $model->addPost()){
@@ -59,6 +60,7 @@ class ContentController extends Controller
 
         return $this->render('add',  [
             'model' => $model,
+            'categories' => $categories
         ]);
     }
 
@@ -70,6 +72,8 @@ class ContentController extends Controller
 
     public function actionNews()
     {
+
+
         $dataProvider = new ActiveDataProvider([
             'query' => Content::find()->with('author'),
             'pagination' => [

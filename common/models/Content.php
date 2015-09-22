@@ -39,7 +39,7 @@ class Content extends ActiveRecord
     {
         return [
             ['status', 'default', 'value' => 1],
-            [['name', 'slug', 'text_bb', 'text_short'], 'required'],
+            [['name', 'slug', 'text_bb', 'text_short', 'category_id'], 'required'],
             [['name', 'slug', 'text_bb', 'text_short'], 'string'],
 
         ];
