@@ -20,7 +20,7 @@ class m150907_065743_content extends Migration
             'text_bb' => $this->text(),
             'add_time' => $this->integer()->notNull(),
             'author_id' => $this->integer()->notNull(),
-            'category_id' => $this->integer()->notNull(),
+            'category_id' => $this->string(),
             'status' => $this->integer()->notNull(),
         ], $tableOptions);
 
