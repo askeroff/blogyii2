@@ -31,11 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'status')->checkbox()->label('Опубликовать сразу') ?>
 
             <h2>Категория</h2>
+            <?php
 
-            <?php foreach($categories as $category) { ?>
+           foreach($categories as $cat) {
 
-                <?= $form->field($model, 'category_id')->checkbox()->label($category->name) ?>
-            <? } ?>
+            print $cat->name;
+           } ?>
 
             <div class="form-group">
                 <?= Html::submitButton('Добавить', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>

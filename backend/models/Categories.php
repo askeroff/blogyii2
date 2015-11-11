@@ -7,6 +7,7 @@ use creocoder\nestedsets\NestedSetsBehavior;
 use backend\models\CategoryQuery;
 
 
+
 class Categories extends ActiveRecord
 {
     public function behaviors() {
@@ -51,6 +52,7 @@ class Categories extends ActiveRecord
                 return $category;
             } else {
                 $parent = Categories::findOne(['id' => Yii::$app->request->post('cats')]);
+                $category->makeRoot();
                 $category->appendTo($parent);
                 return $category;
             }

@@ -45,9 +45,8 @@ class ContentController extends Controller
      */
     public function actionAdd()
     {
-        $model      = new ContentForm();
-        $categories = Categories::find()->all();
-
+        $model = new ContentForm();
+        $categories = Categories::find();
         if ($model->load(Yii::$app->request->post())) {
             if(Yii::$app->user->can('createPost') && $content = $model->addPost()){
                 Yii::$app->getSession()
@@ -72,7 +71,6 @@ class ContentController extends Controller
 
     public function actionNews()
     {
-
 
         $dataProvider = new ActiveDataProvider([
             'query' => Content::find()->with('author'),
@@ -116,15 +114,17 @@ class ContentController extends Controller
 
         }
         return $this->render('edit',  [
-            'model' =>  $model,
+            'model' =>  $model, 
+            
         ]);
 
     }
 
     public function actionCategories()
     {
-        $model = new Categories();
-        $categories = Categories::find()->roots()->all();
+        $model            = new Categories();
+        $categories       = Categories::find()->all();
+        $categories_roots = Categories::find()->roots()->all();
         if ($model->load(Yii::$app->request->post())) {
             if (Yii::$app->user->can('createPost') && $model->addCategory()) {
                 Yii::$app->getSession()
@@ -137,7 +137,8 @@ class ContentController extends Controller
 
         return $this->render('categories', [
             'categories' => $categories,
-            'model' => $model
+            'roots'      => $categories_roots,
+            'model'      => $model
         ]);
     }
 }

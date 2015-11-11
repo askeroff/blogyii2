@@ -9,7 +9,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-signup">
-    <?php if (Yii::$app->user->can('updatePost')){ ?>
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="row">
@@ -32,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::submitButton('Обновить', ['class' => 'btn btn-primary', 'name' => 'edit-button']) ?>
             </div>
 
-            <?php ActiveForm::end(); }?>
+         
         </div>
     </div>
 </div>
