@@ -23,7 +23,7 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    const ROLE_USER = 2;
+    const ROLE_USER  = 2;
     const ROLE_MODER = 5;
     const ROLE_ADMIN = 10;
 
@@ -38,13 +38,18 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @inheritdoc
      */
-    public function behaviors()
+ public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+            ],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -52,7 +57,21 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             ['status', 'default', 'value' => self::ROLE_USER],
-            ['status', 'in', 'range' => [self::ROLE_USER, self::ROLE_ADMIN]],
+            #['status', 'in', 'range' => [self::ROLE_USER, self::ROLE_ADMIN]],
+            ['username', 'filter', 'filter' => 'trim'],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+
+           # ['password', 'required'],
+            #['password', 'string', 'min' => 6],
+           # ['password2', 'compare', 'compareAttribute'=>'password'],
         ];
     }
 

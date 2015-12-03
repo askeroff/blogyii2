@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::submitButton('Обновить', ['class' => 'btn btn-primary', 'name' => 'edit-button']) ?>
             </div>
 
-         
+         <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>

@@ -123,3 +123,11 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
+
+.delete-all{
+  padding: 8px;
+  margin-top: 10px;
+  background: white;
+  border: 1px solid #9b59b6;
+  display: none;
+}
